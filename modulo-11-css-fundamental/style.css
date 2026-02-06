@@ -1,0 +1,254 @@
+/*
+EXERCÍCIO INTEGRADOR FINAL MODULO 11
+Cenário Real: Sistema de Saúde "Saúde+ Digital"
+Contexto: Você foi contratado para criar a interface visual do sistema de pré-consulta online de uma rede de clínicas. O HTML estrutural já está pronto (acima), seu trabalho é criar o CSS profissional que transforme este formulário técnico em uma experiência de usuário agradável e profissional.
+
+REQUISITOS DO CLIENTE (CSS):
+1. Identidade Visual Profissional:
+Cores: Azul (#2563eb) como cor primária (confiança/saúde), verde (#10b981) para confirmação/sucesso, vermelho (#dc2626) para erros/alertas
+Tipografia: Fonte clean e legível (sans-serif: 'Inter', Arial, ou system fonts)
+Imagem: Transmitir seriedade, confiança, modernidade
+
+2. Usabilidade Crítica (formulário médico):
+Campos obrigatórios claramente identificados
+Hierarquia visual que guia o usuário
+Espaçamento confortável para evitar erros
+Estados visuais claros (foco, erro, sucesso)
+
+3. Acessibilidade (não negociável em saúde):
+Contraste adequado (WCAG AA mínimo)
+Tamanho de fonte legível
+Estados focáveis visíveis
+Labels sempre visíveis
+
+SEU DESAFIO:
+Crie o arquivo styles.css aplicando TODOS os 10 conceitos aprendidos no módulo:
+
+CONCEITO 1-2: Separação HTML/CSS + CSS Externo
+Arquivo CSS externo styles.css
+Link correto no HTML: <link rel="stylesheet" href="styles.css">
+NÃO modifique o HTML (exceto adicionar link e classes quando necessário)
+
+CONCEITO 3-4: Seletores Adequados
+Use classes para estilos reutilizáveis
+Use tags para estilos gerais de formulário
+Evite IDs para estilos, use para JavaScript se necessário
+Nomes semânticos: .campo-obrigatorio, .alerta-formulario, não .texto-vermelho
+
+CONCEITO 5-6: Especificidade + Cascata Organizada
+Organize CSS na ordem lógica (reset → base → componentes → específico)
+Evite !important
+Use especificidade natural (classe > tag)
+Regra: quanto mais específico o componente, mais tarde no CSS
+
+CONCEITO 7: Aproveite Herança
+Defina font-family, color base em elemento pai
+Sobrescreva apenas onde necessário
+Use herança para consistência tipográfica
+
+CONCEITO 8: Tipografia Profissional
+Sistema hierárquico: título > legendas > labels > texto
+Contraste adequado
+Espaçamento de linha confortável
+Alinhamento consistente
+
+CONCEITO 9: Box Model Corretamente
+* { box-sizing: border-box; } no início
+Padding generoso em campos de entrada
+Margin consistente entre elementos
+Bordas sutis para delimitação
+
+CONCEITO 10: Evite Erros Comuns
+Sem CSS inline
+Sem !important
+Classes semânticas
+Organização lógica
+
+ESTRUTURA CSS SUGERIDA (para orientação):
+css
+ ===== RESET & BASE ===== 
+ Seu reset aqui (box-sizing, margins básicos) 
+
+ ===== TIPOGRAFIA & CORES BASE ===== 
+ Defina fontes, cores, espaçamentos base que HERDAM 
+
+ ===== COMPONENTES DE FORMULÁRIO ===== 
+ Estilos reutilizáveis: 
+ - Campos de entrada (input, textarea, select) 
+ - Labels e legendas 
+ - Botões 
+ - Fieldset e grupos 
+
+ ===== COMPONENTES ESPECÍFICOS ===== 
+ Estilos específicos deste formulário: 
+ - Diferenciação de seções 
+ - Campos obrigatórios 
+ - Estados (foco, erro, desabilitado) 
+ - Layout específico (checkboxes inline, etc.) 
+
+ ===== UTILITÁRIOS ===== 
+ Classes auxiliares se necessário: 
+ - .visually-hidden (para acessibilidade) 
+ - .texto-alerta, .texto-sucesso 
+
+PEGADINHAS E DESAFIOS ESPECÍFICOS:
+Campos obrigatórios (*) - Como destacar visualmente sem ser agressivo?
+Fieldset com checkboxes - Alinhar labels com inputs
+Botões múltiplos - Diferenciar ação primária (Agendar) das secundárias
+Mensagens de ajuda (<small>) - Estilizar sem competir com conteúdo principal
+Seções longas - Como quebrar visualmente para não cansar o usuário
+
+NÃO FAÇA (restrições do módulo):
+❌ NÃO use Flexbox ou Grid para layout (outro módulo)
+❌ NÃO torne responsivo (outro módulo)
+❌ NÃO use CSS frameworks (Bootstrap, Tailwind)
+❌ NÃO use JavaScript ou interações complexas
+❌ NÃO modifique a estrutura HTML (só adicione classes se necessário)
+
+CRITÉRIOS DE AVALIAÇÃO (o que será "corrigido" mentalmente):
+Organização do CSS (30%)
+Arquivo bem estruturado
+Comentários claros
+Ordem lógica (cascata)
+
+Aplicação dos Conceitos (40%)
+Uso correto de seletores (tag/classe/id)
+Especificidade saudável
+Herança aproveitada
+Box model consistente
+
+Resultado Visual (20%)
+Formulário usável e profissional
+Hierarquia visual clara
+Identidade de saúde/clínica
+
+Boas Práticas (10%)
+Sem !important
+Classes semânticas
+Código limpo e comentado
+
+DICAS PARA COMEÇAR:
+Comece pelo RESET: * { box-sizing: border-box; }
+Estabeleça a BASE: Tipografia, cores, espaçamento base
+Estilize COMPONENTES: Inputs, buttons, labels (genéricos)
+Estilize ESPECÍFICO: Este formulário em particular
+Teste CONSTANTEMENTE: Abra no navegador a cada mudança
+*/
+
+ /*===== RESET & BASE =====*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root{
+  --cor-primaria: #2563eb;
+  --cor-sucesso: #10b981;
+  --cor-erro: #dc2626;
+
+  --cor-texto: #333333;
+  --cor-fundo: #f8fafc;
+  --cor-borda: #cbd5e1;
+
+  --espaco-pequeno: 8px;
+  --espaco-medio: 16px;
+  --espaco-grande: 24px;
+}
+/* 2. BASE (herdável por todo o formulário) */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+  padding: var(--espaco-grande);
+  font-size: 1rem;
+}
+
+/* 3. TIPOGRAFIA HIERÁRQUICA */
+h1 {
+  font-size: 1.8rem;
+  color: var(--cor-primaria);
+  margin-bottom: var(--espaco-grande);
+}
+
+/* Continue a partir daqui... */
+.main-container{
+  max-width: 1200px;
+  border: var(--cor-borda) solid 1px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 8px 0 var(--cor-borda);
+  margin: 0 auto;
+  padding: 10px;
+}
+fieldset{
+  border: var(--cor-borda) solid 1px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 8px 0 var(--cor-borda);
+  margin: 0 auto;
+  padding: 20px;
+}
+legend{
+  font-weight: bold;
+  color: var(--cor-primaria);
+  margin-bottom: 5px;
+  font-size: 25px;
+}
+label{
+  color: var(--cor-texto);
+  font-size: 14px;
+  font-weight: bold;
+  display: block
+}
+small{
+  color: var(--cor-texto);
+}
+.campo-obrigatorio{
+  color: var(--cor-erro);
+  font-weight: bold;
+  font-size: 15px;
+}
+input, select, textarea{
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: var(--cor-borda) solid 1px;
+  box-shadow: 1px 1px 8px 0 var(--cor-borda);
+}
+.checkbox-type{
+  width: auto;
+  display: inline-block;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  box-shadow: 1px 1px 8px 0 var(--cor-borda);
+  border-color: var(--cor-primaria);
+}
+input:disabled,
+select:disabled,
+textarea:disabled {
+  background-color: #e5e7eb;
+  cursor: not-allowed;
+}
+.btn{
+  font-weight: bold;
+  padding: 15px;
+  margin: 15px;
+  justify-content: space-between;
+  border-radius: 8px;
+  box-shadow: 1px 1px 8px 0 var(--cor-borda);
+  font-size: 15px;
+}
+.btn-primario{
+  background-color: var(--cor-sucesso);
+}
+.btn-secundario{
+  background-color: var(--cor-primaria);
+}
+.btn-erro{
+  background-color: var(--cor-erro);;
+}
+.texto-lei{
+  font-weight: bold;
+  color: var(--cor-texto);
+}

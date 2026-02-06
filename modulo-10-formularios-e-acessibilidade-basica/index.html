@@ -163,12 +163,13 @@ Boa sorte! Mostre que você está pronto para o mercado!
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saúde+ Digital - Pré-Consulta</title>
+    <link rel="stylesheet" href="formulario_telemedicina\modulo-11-CSS-FUNDAMENTAL\style.css">
 </head>
 <body>
-    <main>
+    <main class="main-container">
         <form action="/agendar_exame" method="post" enctype="multipart/form-data" id="saude_mais_digital">
             <h1>Formulario saude+ Digital</h1>
-            <p>Campos com * são obrigatórios</p>
+            <p class="campo-obrigatorio">Campos com * são obrigatórios</p>
             <fieldset>
                 <!--SEÇÃO 1: IDENTIFICAÇÃO DO PACIENTE-->
                 <legend>IDENTIFICAÇÃO DO PACIENTE</legend>
@@ -228,9 +229,9 @@ Boa sorte! Mostre que você está pronto para o mercado!
                 <label for="alergia">Alergias conhecidas:</label>
                 <textarea id="alergia" name="alergia"></textarea>
                 <label>Faz uso de medicamentos contínuos? *</label>
-                <input type="radio" id="medicamento_sim" name="medicamentos" value="sim" required>
+                <input type="radio" id="medicamento_sim" name="medicamentos" value="sim" required class="checkbox-type">
                 <label for="medicamento_sim">Sim</label>
-                <input type="radio" id="medicamento_nao" name="medicamentos" value="nao" required>
+                <input type="radio" id="medicamento_nao" name="medicamentos" value="nao" required class="checkbox-type">
                 <label for="medicamento_nao">Não</label>
                 <label for="medicamentos_textarea">Medicamentos em uso regular (preencha se marcou “Sim”):</label>
                 <textarea id="medicamentos_textarea" name="medicamentos_textarea" aria-required="true"></textarea>
@@ -238,14 +239,14 @@ Boa sorte! Mostre que você está pronto para o mercado!
             <fieldset>
                 <!--SEÇÃO 4: HISTÓRICO FAMILIAR (fieldset com checkboxes)-->
                 <legend>Histórico familiar</legend>
-                <input type="checkbox" id="diabetes" name="diabetes" />
                 <label for="diabetes">Possui diabetes na família?</label>
-                <input type="checkbox" id="hipertensao" name="hipertensao" />
+                <input type="checkbox" id="diabetes" name="diabetes" class="checkbox-type"/>
                 <label for="hipertensao">Possui hipertensão na família?</label>
-                <input type="checkbox" id="cancer" name="cancer" />
+                <input type="checkbox" id="hipertensao" name="hipertensao" class="checkbox-type" />                
                 <label for="cancer">Possui câncer na família?</label>
-                <input type="checkbox" id="cardiaco" name="cardiaco" />
+                <input type="checkbox" id="cancer" name="cancer" class="checkbox-type" />
                 <label for="cardiaco">Possui doenças cardíacas na família?</label>
+                <input type="checkbox" id="cardiaco" name="cardiaco" class="checkbox-type"/>
                 <label for="outras">Outras:</label>
                 <textarea name="outras" id="outras"></textarea>
             </fieldset>
@@ -273,10 +274,10 @@ Boa sorte! Mostre que você está pronto para o mercado!
             </fieldset>
             <fieldset>
                 <legend>Plano de saúde?*</legend>
-                <input type="radio" id="plano_sim" name="plano" value="sim" required>
                 <label for="plano_sim">Sim</label>
-                <input type="radio" id="plano_nao" name="plano" value="nao" required>
+                <input type="radio" id="plano_sim" name="plano" value="sim" required class="checkbox-type">
                 <label for="plano_nao">Não</label>
+                <input type="radio" id="plano_nao" name="plano" value="nao" required class="checkbox-type">
                 <label for="sim_plano">Se sim, nome do plano</label>
                 <input type="text" id="sim_plano" name="sim_plano">
             </fieldset>
@@ -288,14 +289,14 @@ Boa sorte! Mostre que você está pronto para o mercado!
                     <label for="comprovante_residencia">Upload do comprovante de residência (opcional)</label>
                     <input  type="file"  id="comprovante_residencia"  name="comprovante_residencia" accept="application/pdf,image/*">
                     <label for="autoriza_dados">Autorizo o compartilhamento de dados com minha operadora de plano *</label>
-                    <input  type="checkbox"  id="autoriza_dados"  name="autoriza_dados"  required>
+                    <input  type="checkbox"  id="autoriza_dados"  name="autoriza_dados"  required class="checkbox-type">
                     <label for="aceite_termos">Li e aceito os termos de uso e política de privacidade *</label>
-                    <input  type="checkbox"  id="aceite_termos"  name="aceite_termos"  required>
+                    <input  type="checkbox"  id="aceite_termos"  name="aceite_termos"  required class="checkbox-type">
             </fieldset>
-            <button type="submit">Agendar Consulta</button>
-            <button type="button">Salvar Rascunho</button>
-            <button type="button">Limpar Formulário</button>
-            <p>Em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei 13.709, de 14 de agosto de 2018), entenda por que coletamos os seus dados.</p>
+            <button type="submit" class="btn btn-primario">Agendar Consulta</button>
+            <button type="button" class="btn btn-secundario">Salvar Rascunho</button>
+            <button type="button" class="btn btn-erro">Limpar Formulário</button>
+            <p class="texto-lei">Em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei 13.709, de 14 de agosto de 2018), entenda por que coletamos os seus dados.</p>
         </form>
     </main>
 </body>
