@@ -98,11 +98,3 @@ Evolução do formulário do módulo 10, aplicando **estilização com CSS puro*
 
 Projeto desenvolvido como exercício integrador do curso de Frontend  
 (Módulos 10 e 11 — HTML + CSS Fundamental)
-
-=======
-## 📁 Estrutura do Projeto
-formulario_telemedicina/
-├── index.html # Formulário principal (HTML puro)
-├── README.md # Esta documentação
-└── .gitignore # Configurações do Git
->>>>>>> 1eb781ffcc80776ae6e9d1b7743e49dd37e15ed8
